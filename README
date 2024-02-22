@@ -3,7 +3,7 @@
 The Silver Hammer Software Library (shslib.a) contains general purpose 
 functions for C programs.  Some of these could be incorporated in gcc, IMHO.
 
-The funtions in NullSafeFuncs.c were concieved when the C language powers-that-be
+The functions in NullSafeFuncs.c were concieved when the C language powers-that-be
 decreed that fclose () and the string functions with a null pointer arguments
 should throw segmentation faults and terminate program execution.
 
