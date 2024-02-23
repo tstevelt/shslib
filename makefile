@@ -35,7 +35,6 @@ FILES = \
 	$(LIB)(GetTokensD.o)	\
 	$(LIB)(GetTokensStd.o)	\
 	$(LIB)(GetTokensW.o)	\
-	$(LIB)(hastab.o)		\
 	$(LIB)(IsMarketOpen.o)	\
 	$(LIB)(isword.o)	\
 	$(LIB)(JsonTokens.o)	\

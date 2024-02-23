@@ -278,9 +278,6 @@ int GetTokensStd ( char xbuf [], char delim [], char *toks [], int maxtoks , int
 /* GetTokensW.c */
 int GetTokensW ( char xbuf [], char *toks [], int maxtoks );
 
-/* hastab.c */
-int hastab ( char *s );
-
 /* IsMarketOpen.c */
 int IsMarketOpen ( void );
 

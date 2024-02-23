@@ -8,3 +8,5 @@ TestYear2Year4
 *.man
 *.mak
 
+*-
+script
