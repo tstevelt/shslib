@@ -230,9 +230,6 @@ char *DayOfWeek ( int TimeDayOfWeek );
 /* dbldiff.c */
 int dbldiff ( double d1 , double d2 , double allow );
 
-/* detab.c */
-int detab ( char *src , char *dst , int dstsize , short tabsize );
-
 /* DiffYak.c */
 void DiffYak ( char *Label , void *Mem1 , void *Mem2 , size_t MemSize , int Datatype );
 
@@ -322,9 +319,6 @@ char *strMunge ( char String []);
 
 /* nap.c */
 void nap ( int milliseconds );
-
-/* NapMillisec.c */
-void NapMillisec ( int msec );
 
 /* nsSimilar.c */
 double nsSimilar ( char *String1 , char *String2 );

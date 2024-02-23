@@ -20,7 +20,6 @@ FILES = \
 	$(LIB)(DateAdd.o)	\
 	$(LIB)(DateDiff.o)	\
 	$(LIB)(dbldiff.o)	\
-	$(LIB)(detab.o)		\
 	$(LIB)(DiffYak.o)		\
 	$(LIB)(ErrorColor.o)	\
 	$(LIB)(FileAge.o)		\
@@ -47,7 +46,6 @@ FILES = \
 	$(LIB)(MakeFileName.o)	\
 	$(LIB)(MinMaxScale.o)	\
 	$(LIB)(munge.o)	\
-	$(LIB)(NapMillisec.o)	\
 	$(LIB)(nap.o)	\
 	$(LIB)(nsSimilar.o)	\
 	$(LIB)(NullSafeFuncs.o)	\
