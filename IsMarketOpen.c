@@ -1,13 +1,16 @@
 /*----------------------------------------------------------------------------
-	Program : progname.c
+	Program : IsMarketOpen.c
 	Author  : Silver Hammer Software LLC
 	Author  : Tom Stevelt
 	Date    : 01/19/2021
-	Synopsis: xxxxxxxxxxx
-	Return  : 
+	Synopsis: Check time of week day between 9:30 AM and 4:00 PM
+	Return  : 1 = market is open, 0 = not open
 
 	Who		Date		Modification
 	---------------------------------------------------------------------
+	tms		unknown		This function does not account for holidays.
+						Replaced with call, at 12:01 PM, to IEX for quote
+						on SPY, which contains response field 'isUSMarketOpen'
 
 ----------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------

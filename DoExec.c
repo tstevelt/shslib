@@ -1,28 +1,5 @@
-/*----------------------------------------------------------------------------
-	Program : progname.c
-	Author  : Silver Hammer Software LLC
-	Author  : Tom Stevelt
-	Date    : 01/19/2021
-	Synopsis: xxxxxxxxxxx
-	Return  : 
-
-	Who		Date		Modification
-	---------------------------------------------------------------------
-
-----------------------------------------------------------------------------*/
-/*---------------------------------------------------------------------------
-	Copyright © 2024 Tom Stevelt
-	Tom Stevelt <tstevelt@silverhammersoftware.com>
-	This software is free software; you can redistribute it and/or modify
-	it under the terms of the MIT license. See LICENSE for details.
----------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------
     DoExec.c
-
-    TCP/IP Based Database Server
-    This source code is copyright 2002 by Victory Wholesale Grocers.
-    Use, copying, or disclosure subject to signed License Agreement
-    with Victory Wholesale Grocers.
 
     Author     : Tom Stevelt
     Date       : 2002
@@ -31,6 +8,12 @@
 				 to client.  Can return unlimited output.
 
 --------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------
+	Copyright © 2024 Tom Stevelt
+	Tom Stevelt <tstevelt@silverhammersoftware.com>
+	This software is free software; you can redistribute it and/or modify
+	it under the terms of the MIT license. See LICENSE for details.
+---------------------------------------------------------------------------*/
 
 
 #include 	"elsdmn.h"
