@@ -29,6 +29,7 @@ FILES = \
 	$(LIB)(ForkAndExec.o)	\
 	$(LIB)(FourDigitYear.o)	\
 	$(LIB)(GetDomainName.o)	\
+	$(LIB)(GetGoogleCfg.o)	\
 	$(LIB)(GetTokensA.o)		\
 	$(LIB)(GetTokensCSV.o)	\
 	$(LIB)(GetTokensD.o)	\

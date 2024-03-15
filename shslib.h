@@ -116,6 +116,9 @@ typedef struct
 TYPE	ERROR_RECORD	ErrorArray[MAXERR];
 TYPE	int				ErrorCount;
 
+TYPE	char		env_GoogleMapKey[65];
+// not used TYPE	char		env_GoogleMapURL[65];
+
 #define		DATEFMT_MM_DD_YY		101
 #define		DATEFMT_MMDDYY			102
 #define		DATEFMT_YYYY_MM_DD		103
@@ -259,6 +262,9 @@ int FourDigitYear ( int Year );
 
 /* GetDomainName.c */
 char *GetDomainName ( void );
+
+/* GetGoogleCfg.c */
+void GetGoogleCfg ( void );
 
 /* GetTokensA.c */
 int GetTokensA ( char Buffer [], char Delim [], char *tokens [], int maxtoks );
