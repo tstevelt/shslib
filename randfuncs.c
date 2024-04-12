@@ -7,7 +7,7 @@
 	Synopsis: Various functions for random numbers. Originally written 
 			  for "grotto" card game, to shuffle the deck of cards.
 
-	Return  : 	void seed_random_with_usec ( void );
+	Return  : 	void shs_seed_random ( void );
 				double d_random ( void );
 				long random_range ( long low , long high );
 
@@ -28,7 +28,7 @@
 
 unsigned long num_Random;
 
-void seed_random_with_usec ( void )
+void shs_seed_random ( void )
 {
 	struct timeval		tv;
 	unsigned int		Nut;

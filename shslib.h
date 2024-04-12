@@ -386,7 +386,7 @@ unsigned char *pw_sha_make_pw ( unsigned char *plaintext );
 int pw_sha_login_pw ( unsigned char *plaintext , unsigned char *filepw );
 
 /* randfuncs.c */
-void seed_random_with_usec ( void );
+void shs_seed_random ( void );
 double d_random ( void );
 short flip ( double probability );
 long random_range ( long low , long high );

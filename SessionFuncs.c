@@ -34,7 +34,7 @@ int MakeSessionID ( char SessionBuffer[], int Length, int InitRandom )
 		firstpass = 0;
 		if ( InitRandom )
 		{
-			seed_random_with_usec ();
+			shs_seed_random ();
 		}
 	}
 
