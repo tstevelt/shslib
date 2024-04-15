@@ -67,6 +67,7 @@ FILES = \
 	$(LIB)(shsUsage.o)	\
 	$(LIB)(shsSearchAndReplace.o)	\
 	$(LIB)(softmax.o)	\
+	$(LIB)(SoundEx.o)	\
 	$(LIB)(stddev.o)	\
 	$(LIB)(StrInitialCaps.o)	\
 	$(LIB)(Stripper.o)	\

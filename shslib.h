@@ -432,6 +432,9 @@ void shsUsage ( FILE *fp , char *error , char *msg [], int count , int fatal );
 /* softmax.c */
 int softmax ( double *Array , size_t size );
 
+/* SoundEx.c */
+int SoundEx ( char *SoundEx , char *WordString , int LengthOption , int CensusOption );
+
 /* stddev.c */
 double stddev ( double Array [], int Count );
 
