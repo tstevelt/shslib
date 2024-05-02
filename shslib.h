@@ -242,6 +242,9 @@ void DoExec ( FILE *DaemonIFP , FILE *DaemonOFP , char *CommandLine );
 /* ErrorColor.c */
 int ErrorColor ( void );
 
+/* factorial.c */
+double factorial ( int number );
+
 /* FileAge.c */
 int FileAge ( char *FileName );
 

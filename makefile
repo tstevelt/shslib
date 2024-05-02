@@ -22,6 +22,7 @@ FILES = \
 	$(LIB)(dbldiff.o)	\
 	$(LIB)(DiffYak.o)		\
 	$(LIB)(ErrorColor.o)	\
+	$(LIB)(factorial.o)		\
 	$(LIB)(FileAge.o)		\
 	$(LIB)(FileDateTime.o)	\
 	$(LIB)(findmax.o)	\
