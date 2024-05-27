@@ -227,9 +227,6 @@ int DateAdd ( DATEVAL *a , int NumberOfDays , DATEVAL *b );
 /* DateDiff.c */
 long DateDiff ( DATEVAL *a , DATEVAL *b );
 
-/* DayOfWeek.c */
-char *DayOfWeek ( int TimeDayOfWeek );
-
 /* dbldiff.c */
 int dbldiff ( double d1 , double d2 , double allow );
 
