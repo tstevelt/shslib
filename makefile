@@ -77,6 +77,7 @@ FILES = \
 	$(LIB)(StrToDateval.o)	\
 	$(LIB)(TimeDateFuncs.o)	\
 	$(LIB)(trimfuncs.o)		\
+	$(LIB)(unlink.o)		\
 	$(LIB)(ValidDateval.o)	\
 	$(LIB)(ValidEmailAddress.o)	\
 	$(LIB)(ValidNumber.o)	\

@@ -13,6 +13,8 @@
 
 	Who		Date		Modification
 	---------------------------------------------------------------------
+	tms		08/17/2024	These interfaces are obsoleted by arc4random(3).
+
 
 ----------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------
@@ -26,14 +28,21 @@
 #include	<stdlib.h>
 #include	<sys/time.h>
 
+#define		APPLE
+#undef		APPLE
+
 unsigned long num_Random;
 
-void shs_seed_random ( void )
+unsigned int shs_seed_random ( void )
 {
+	unsigned int		Seed;
+
+#ifdef APPLE
+	Seed = 0;
+#else
 	struct timeval		tv;
 	unsigned int		Nut;
 	unsigned int		Corn;
-	unsigned int		Seed;
 
 	gettimeofday ( &tv, NULL );
 
@@ -46,20 +55,26 @@ void shs_seed_random ( void )
 	Seed = Nut + Corn + tv.tv_usec;
 
 	srand ( Seed );
-
+#endif
+	return ( Seed );
 }
 
 double d_random ()
 {
-	long 	xl;
 	double	rv;
 
 	// xl = rand ();
-	xl = random ();
+#ifdef APPLE
+	uint32_t 	xl;
+	xl = arc4random();
+	rv = (double) xl / (double)UINT32_MAX;
+#else
+	u_int32_t 	xl;
+	xl = (u_int32_t)random ();
+	rv = (double) xl / (double)RAND_MAX;
+#endif
 
 	num_Random++;
-
-	rv = (double) xl / (double)RAND_MAX;
 
 	return ( rv );
 }
@@ -87,18 +102,25 @@ short flip ( double probability )
 ------------------------------------------------------------------*/
 long random_range ( long low, long high )
 {
-	double	xd;
 	long	rv;
 
 	if ( low >= high )
 		return ( low );
 
-	xd = d_random ();
+#ifdef APPLE
+	do
+	{
+		rv = arc4random_uniform(high);
+	} while ( rv < low );
+
+#else
+	double xd = d_random ();
 
 	rv = xd * ( high - low + 1 ) + low;
 	
 	if ( rv > high ) 
 		rv = high;
+#endif
 
 	return ( rv );
 }
@@ -114,10 +136,10 @@ double d_random_range ( double low, double high )
 
 	xd = d_random ();
 
-	rv = xd * ( high - low ) + low;
+	rv = xd * (double)( high - low ) + (double)low;
 	
-	if ( rv > high ) 
-		rv = high;
+	if ( rv > (double)high ) 
+		rv = (double)high;
 
 	return ( rv );
 }

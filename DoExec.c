@@ -72,7 +72,9 @@ void DoExec ( FILE *DaemonIFP, FILE *DaemonOFP, char *CommandLine )
 
 			execvp ( tokens[0], tokens );
 
-			sprintf ( msgbuf, "execl failed (maybe), errno %d", errno );
+			sprintf ( msgbuf, "execvp failed (maybe), errno %d", errno );
+			logmsg ( LogFileName, msgbuf );
+			sprintf ( msgbuf, "%s", strerror(errno) );
 			logmsg ( LogFileName, msgbuf );
 			
 			printf ( "Can not exec [%s]\n", CommandLine );

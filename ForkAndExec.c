@@ -88,6 +88,7 @@ void ForkAndExec ( char *CommandLine, int PrintDestination )
 			execvp ( tokens[0], tokens );
 
 			fprintf ( stderr, "execl failed (maybe), errno %d", errno );
+			fprintf ( stderr, "%s", strerror(errno) );
 			
 			printf ( "Can not exec [%s]\n", CommandLine );
 
