@@ -252,12 +252,12 @@ int pw_check ( char * PlainText, char * SaltEncoded )
 	int		Salt, PasswordLength;
 	char	TestBuffer [ MAX_PASSWORD_LENGTH + 1 ];
 
-	sprintf ( SaltBuffer, "%*.*s", PASSWORD_SALT_DIGITS, PASSWORD_SALT_DIGITS, SaltEncoded );
+	snprintf ( SaltBuffer, sizeof(SaltBuffer), "%*.*s", PASSWORD_SALT_DIGITS, PASSWORD_SALT_DIGITS, SaltEncoded );
 	Salt = nsAtoi ( SaltBuffer );
 
-	sprintf ( EncodeBuffer, "%s", &SaltEncoded[PASSWORD_SALT_DIGITS] );
+	snprintf ( EncodeBuffer, sizeof(EncodeBuffer), "%s", &SaltEncoded[PASSWORD_SALT_DIGITS] );
 
-	PasswordLength = sprintf ( TestBuffer, "%s", PlainText );
+	PasswordLength = snprintf ( TestBuffer, sizeof(TestBuffer), "%s", PlainText );
 	
 #ifdef DEBUG
 	printf ( "Test: %s (%d)\n", TestBuffer, PasswordLength );

@@ -1,4 +1,7 @@
 /*---------------------------------------------------------------------------
+    JsonScan() uses global static state, not re-entrant or thread safe.
+---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------
 	Copyright © 2024 Tom Stevelt
 	Tom Stevelt <tstevelt@silverhammersoftware.com>
 	This software is free software; you can redistribute it and/or modify
@@ -27,7 +30,7 @@ char *JsonOpenFileAndRead ( char *filename )
 	filesize = ftell ( fp );
 	fseek ( fp, 0L, SEEK_SET );
 
-	if (( ptr = malloc ( filesize )) == NULL )
+	if (( ptr = calloc ( filesize+1, 1 )) == NULL )
 	{
 		nsFclose ( fp );
 		return ( NULL );

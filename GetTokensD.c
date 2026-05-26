@@ -6,6 +6,7 @@
 	Synopsis: based on gettoks - but takes a string of delimeters.
 			  extract tokens from text line.  
 			  DESTROYS original (fill whitespace with nulls).
+			  As tokens are found, nulls are placed in Buffer[].
 	Return  : number of tokens extracted.
 
 	Who		Date		Modification

@@ -107,7 +107,7 @@ void ForkAndExec ( char *CommandLine, int PrintDestination )
 				switch ( PrintDestination )
 				{
 					case PRINT_DESTINATION_SILENT:
-						printf ( "%s > /dev/null", xbuf );
+						// printf ( "%s > /dev/null", xbuf );
 						break;
 					case PRINT_DESTINATION_STDOUT:
 						printf ( "%s", xbuf );

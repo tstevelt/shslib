@@ -27,7 +27,7 @@
 int nsAtoi (const char *cpOne )
 {
 	if ( cpOne == (char *)0  )
-		return ( 0.0 );
+		return ( 0 );
 
 	return ( atoi(cpOne) );
 }
@@ -35,7 +35,7 @@ int nsAtoi (const char *cpOne )
 long nsAtol (const char *cpOne )
 {
 	if ( cpOne == (char *)0  )
-		return ( 0.0 );
+		return ( 0 );
 
 	return ( atol(cpOne) );
 }
@@ -237,12 +237,11 @@ int nsFclose ( FILE *fp )
 	return ( fclose ( fp ));
 }
 
-static	char	*TempString = (char *)0;
-static	int		TempLength = 0;
-
 char *nsStrToUpcase ( char *InString )
 {
 	int		len, ndx;
+	static	char	*TempString = (char *)0;
+	static	int		TempLength = 0;
 
 	len = nsStrlen ( InString );
 	if ( len == 0 )
@@ -271,6 +270,8 @@ char *nsStrToUpcase ( char *InString )
 char *nsStrToLowcase ( char *InString )
 {
 	int		len, ndx;
+	static	char	*TempString = (char *)0;
+	static	int		TempLength = 0;
 
 	len = nsStrlen ( InString );
 	if ( len == 0 )

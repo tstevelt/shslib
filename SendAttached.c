@@ -58,6 +58,11 @@ size_t calcDecodeLength(const char* b64input) { //Calculates the length of a dec
 	size_t len = nsStrlen(b64input),
 		padding = 0;
 
+	if ( len < 2 )
+    {
+        return ( 0 );
+    }
+
 	if (b64input[len-1] == '=' && b64input[len-2] == '=') //last two chars are =
 		padding = 2;
 	else if (b64input[len-1] == '=') //last char is =
@@ -114,7 +119,7 @@ int Base64Encode(const unsigned char* buffer, size_t length, char** b64text)
 char *Generate_UUID ()
 {
 	static char UUID_Buffer[40];
-	long	tvec;
+//	long	tvec;
 	unsigned int		num1;
 	unsigned int		num2;
 	unsigned int		num3;
@@ -124,8 +129,9 @@ char *Generate_UUID ()
 	unsigned int		num7;
 	unsigned int		num8;
 
-	time ( &tvec );
-	srand ( tvec );
+	//time ( &tvec );
+	//srand ( tvec );
+	shs_seed_random ();
 
 	num1 =   rand() & 0xffff;     
 	num2 =   rand() & 0xffff; 
@@ -180,7 +186,7 @@ int SendAttached ( char *FromAddress,
 	time ( &tvec );
 	tm = localtime ( &tvec );
 
-	sprintf ( TempFN, "/var/local/tmp/SendAttached_%d_%d.txt", getpid(), SequenceNumber++ );
+	snprintf ( TempFN, sizeof(TempFN), "/var/local/tmp/SendAttached_%d_%d.txt", getpid(), SequenceNumber++ );
 
 	if (( TempFP = fopen ( TempFN, "w" )) == (FILE *)0 )
 	{
@@ -191,7 +197,6 @@ int SendAttached ( char *FromAddress,
 	/*----------------------------------------------------------
 		no trailing newlines!  tms 06/18/2019
 	----------------------------------------------------------*/
-	TrimRightAndLeft ( FromAddress );
 	TrimRightAndLeft ( FromAddress );
 	TrimRightAndLeft ( ToAddress );
 	TrimRightAndLeft ( Subject );
@@ -326,7 +331,7 @@ int SendAttached ( char *FromAddress,
 
 	nsFclose ( TempFP );
 
-	sprintf ( cmdline, "sendmail -t < %s", TempFN );
+	snprintf ( cmdline, sizeof(cmdline), "sendmail -t < %s", TempFN );
 
 	system ( cmdline );
 

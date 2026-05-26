@@ -6,6 +6,7 @@
 	Synopsis: This is the same as gettok3() in pwlib
 			  tokcnt = GetTokensA ( WorkBuffer, ":\n", tokens, 20 );
 			  leading and empty delimiters are significant
+			  As tokens are found, nulls are placed in Buffer[].
 	Return  : 
 
 	Who		Date		Modification

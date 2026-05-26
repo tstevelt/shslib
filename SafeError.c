@@ -47,7 +47,7 @@ void SafeError ( int Color, char *MessageFormat, ... )
 	if ( ErrorCount + 1 == MAXERR )
 	{
 		ErrorArray[ErrorCount].Color = Color;
-		sprintf ( ErrorArray[ErrorCount].Message, "Error message array is full" );
+		snprintf ( ErrorArray[ErrorCount].Message, sizeof(ErrorArray[ErrorCount].Message), "Error message array is full" );
 		ErrorCount++;
 		return;
 	}

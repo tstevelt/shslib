@@ -28,7 +28,8 @@ char *shsSearchAndReplace ( char *Source, char *Pattern, char *Replacement )
 		}
 	}
 
-	SpaceNeeded = 4 + SourceLength + Count * ( ReplacementLength - PatternLength );
+	// SpaceNeeded = 4 + SourceLength + Count * ( ReplacementLength - PatternLength );
+	   SpaceNeeded = 4 + SourceLength - Count * ( PatternLength - ReplacementLength );
 
 	if ( Destination )
 	{

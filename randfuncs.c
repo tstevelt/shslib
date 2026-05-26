@@ -37,6 +37,7 @@ unsigned int shs_seed_random ( void )
 {
 	unsigned int		Seed;
 
+/*----------------------------------------------------------
 #ifdef APPLE
 	Seed = 0;
 #else
@@ -56,6 +57,30 @@ unsigned int shs_seed_random ( void )
 
 	srand ( Seed );
 #endif
+----------------------------------------------------------*/
+
+    FILE *fp;
+
+    fp = fopen("/dev/urandom", "rb");
+    if (fp == NULL)
+    {
+        perror("fopen");
+        return 1;
+    }
+
+    if (fread(&Seed, sizeof(Seed), 1, fp) != 1)
+    {
+        perror("fread");
+        fclose(fp);
+        return 1;
+    }
+
+    fclose(fp);
+
+//    printf("Seed = %u\n", Seed);
+
+    srand(Seed);
+
 	return ( Seed );
 }
 

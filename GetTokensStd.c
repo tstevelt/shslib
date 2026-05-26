@@ -5,6 +5,7 @@
 	Date    : 01/19/2021
 	Synopsis: Get tokens from string separated by specified delimiters.
 			  Handle "empty" fields, ie. ",,"
+			  As tokens are found, nulls are placed in Buffer[].
 	Return  : 
 
 	Who		Date		Modification
@@ -59,7 +60,7 @@ DATE,TRANSACTION ID,DESCRIPTION,QUANTITY,SYMBOL,PRICE,COMMISSION,AMOUNT,REG FEE,
 	}
 
 	toks[rv] = &xbuf[0];
-	for ( xi = 0; xi < xl; xi++ )
+	for ( xi = 0; xi < xl && rv < maxtoks; xi++ )
 	{
 		if ( nsStrchr ( delim, xbuf[xi] ) != (char *)0 )
 		{

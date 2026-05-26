@@ -9,6 +9,7 @@
 			  3. Optional, lose internaal commas.
 			  4. Call GetTokensStd on pipes
 			  5. As with other GetTokens functions, original string is mod.
+			  As tokens are found, nulls are placed in Buffer[].
 	Return  : Token Count on success
 
 	Who		Date		Modification
@@ -25,10 +26,9 @@
 #include	"shsprivate.h"
 #include	"shslib.h"
 
-static char WorkBuffer[2048];
-
 int GetTokensCSV ( char *Buffer, char *tokens[], int MaxToks, int KeepInternalCommas, int Verbose )
 {
+	char	WorkBuffer[2048];
 	int		TokenCount = 0;
 	int		Length;
 	int		ndx, inquote, NewLength;
@@ -38,7 +38,7 @@ int GetTokensCSV ( char *Buffer, char *tokens[], int MaxToks, int KeepInternalCo
 		return ( TokenCount );
 	}
 
-	if ( Length > 2048 )
+	if ( Length >= 2048 )
 	{
 		if ( Verbose )
 		{
