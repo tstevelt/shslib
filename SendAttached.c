@@ -180,11 +180,21 @@ int SendAttached ( char *FromAddress,
 	static	int		SequenceNumber = 1;
 	char	*cp;
 
-
 	MyUUID = Generate_UUID();
 
 	time ( &tvec );
 	tm = localtime ( &tvec );
+
+/*----------------------------------------------------------
+    thanks to Claude Sonnet 5
+----------------------------------------------------------*/
+long off = tm->tm_gmtoff;
+char sign = (off < 0) ? '-' : '+';
+long abs_off = labs(off);
+int hh = abs_off / 3600;
+int mm = (abs_off % 3600) / 60;
+char tzbuf[8];
+snprintf(tzbuf, sizeof(tzbuf), "%c%02d%02d", sign, hh, mm);
 
 	snprintf ( TempFN, sizeof(TempFN), "/var/local/tmp/SendAttached_%d_%d.txt", getpid(), SequenceNumber++ );
 
@@ -215,7 +225,7 @@ int SendAttached ( char *FromAddress,
 	}
 	fprintf ( TempFP, "Subject: %s\n", Subject );
 	fprintf ( TempFP, "MIME-Version: 1.0\n" );
-	fprintf ( TempFP, "Date: %s, %d %s %d %d:%02d:%02d %ld\n", 
+	fprintf ( TempFP, "Date: %s, %d %s %d %d:%02d:%02d %s\n", 
 		DayOfWeek ( tm->tm_wday ),
 		tm->tm_mday,
 		MonthOfYear ( tm->tm_mon ),
@@ -223,7 +233,7 @@ int SendAttached ( char *FromAddress,
 		tm->tm_hour,
 		tm->tm_min,
 		tm->tm_sec,
-		tm->tm_gmtoff );
+		tzbuf /* %ld tm->tm_gmtoff */ );
 
 
 	if ( AttachmentCount == 0 )
